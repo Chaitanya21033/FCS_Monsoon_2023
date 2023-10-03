@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Adds the show/hide behavior for banner image captions.
+ */
+
+(function ($, Drupal) {
+
+  Drupal.behaviors.headerCaptions = {
+    attach: function (context, settings) {
+      $(".banner-caption-toggle", context).off().click(function (e) {
+        var $contents = $(this).next(".banner-caption");
+        $contents.toggleClass("hidden");
+      });
+      $(".banner-caption > span", context).off().click(function (e) {
+        $(this).parent().addClass("hidden");
+      });
+    }
+  };
+
+})(jQuery, Drupal);
+;
